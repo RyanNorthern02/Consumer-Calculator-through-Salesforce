@@ -1,0 +1,256 @@
+.page-section{
+    padding: 1rem;
+    background: #F4F7FE;
+    border-radius: 6px;
+    width: 400px;
+}
+:host {
+  --slds-c-radio-mark-color-foreground: #F65F18;
+  --slds-c-radio-color-background-checked:#E5E5E5 ;
+  --slds-c-tabs-item-color-border-active: #F65F18;  
+  --slds-c-tabs-item-color-border: #E5E5E5;
+  --slds-c-tabs-item-text-color-active: #191C26;
+  --slds-c-tabs-item-text-font-style: 'Roc Grotesk' ;
+  --slds-c-tabs-item-color-border-hover: #E5E5E5 ;
+  --slds-c-tabs-list-color-border: white;
+  --slds-c-tabs-item-border-bottom-color: #E5E5E5;
+  /* --slds-c-tabs-list-text-decoration-line: none; */
+}
+.input-square-pre{
+    border-radius: 4px 0px 0px 4px !important;
+    display: inline-flex !important;
+}
+
+.input-square-pre::before{
+    content: '$';
+    border-radius: 4px 0px 0px 4px;
+    background-color: #F3F3F3;
+    margin: 0; 
+    margin-top: auto;
+    padding: 14.5px; 
+    float: left;
+    border: 2px #d3d3d3d2;
+}
+
+.input-square-add{
+    border-radius: 4px 0px 0px 4px !important;
+    display: inline-flex !important;
+}
+
+.input-square-add::after{
+    content: '%';
+    border-radius: 0px 4px 4px 0px;
+    background-color: #F3F3F3;
+    margin: 0; 
+    margin-top: auto;
+    padding: 14.5px; 
+    float: left;
+    border: 10px #d3d3d3d2;
+}
+
+.page-header,
+.page-footer {
+    height: 50px;
+}
+
+.slds-grid{
+    width: 825px;
+}
+
+/* block makes label appear above the input */
+
+.field-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-family: 'Roc Grotesk';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 27px;
+    
+
+/* identical to box height, or 150% */
+
+display: flex;
+align-items: center;
+
+color: #191C26;
+
+}
+
+.radioClass{
+  padding-bottom: 25px;
+}
+
+    .tabStyling{
+      font-family: 'Roc Grotesk' !important;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    /* the overall container containing $ or % symbol plus the input field */
+    
+.input-container {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgb(201, 201, 201);
+    width: 100%;
+    max-width: 250px;
+}
+    
+    /* the grey box containing the $ */
+    
+.dollar-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    background-color: #F3F3F3;
+    margin: 0;
+    margin-top: auto;
+    padding: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+     
+    /* the input box for $ - hide the border */
+    
+.input-dollar {
+    padding-left: 0.5rem;
+    width: 100%;
+    line-height: 40px;
+    border: 0;
+    font-size: 18px;
+    font-family: sans-serif;
+    border-radius: 6px;
+}
+    
+    /* disable std browser field highlighting when in focus */
+    
+.input-dollar:focus-visible { 
+    outline: 0;
+}
+ 
+    /* the error message gets displayed below the input */
+    
+.validation-message {
+    margin-top: 0.5rem;
+    color: red;
+}
+
+.page-section {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+  }
+  
+  .page-section p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+  }
+
+.button{
+    background: #F65F18;
+    color: white;
+    border-radius: 6px;
+    padding: 0.5em 1.5em;
+    border: none;
+    font-size: 18px;
+    width: 150px;
+    height: 48px;
+    font-family: 'Roc Grotesk' !important; 
+    font-weight: bold;
+  }
+  .disabledButton{
+    background: #C9C7C5;
+    color: white;
+    border-radius: 6px;
+    padding: 0.5em 1.5em;
+    border: none;
+    font-size: 18px;
+    width: 150px;
+    height: 48px;
+    font-family: 'Roc Grotesk' !important; 
+    font-weight: bold;
+  }
+  .result{
+    color: #636363;
+    font-family: 'Roc Grotesk'!important ;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .hrLine{
+    height:1px;
+    border-width:0;
+    color:#E5E5E5;
+    background-color:#E5E5E5
+  }
+  .middleText{
+    font-size: 18px; 
+    font-family: 'Roc Grotesk' !important;
+  }
+  .finalresult
+  {
+    font-family: 'Roc Grotesk'!important ;
+    font-size: 24px;
+  }
+  .radioClass{
+    font-family: 'Roc Grotesk';
+  }
+  .labelforresult{
+    font-family: "Roc Grotesk";
+    font-size: 16px;
+    font-weight: bold;
+    color: #191C26;
+  }
+
+  .results-top{
+    font-family: "Roc Grotesk";
+    font-size: 20px;
+    font-weight: bold;
+    color: #191C26;
+  }
+
+  .resultlabel{
+    color: #E5E5E5;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+  }
+
+  .labelforfinalcharge{
+    font-family: "Roc Grotesk";
+    font-size: 24px;
+    font-weight: bold;
+    color: #191C26;
+  }
+
+  .contactChoice1{
+    font-family: "Roc Grotesk";
+    font-size: 18px;
+    font-weight: bold;
+    color: #191C26;
+  }
+
+  .contactChoice2{
+    font-family: "Roc Grotesk";
+    font-size: 16px;
+    font-weight: bold;
+    color: #191C26;
+  }
+
+  legend{
+    font-family: "Roc Grotesk";
+    font-size: 16px;
+    font-weight: bold;
+    color: #191C26;
+  }
+
+  radio{
+    background: #F65F18;
+  }

@@ -1,0 +1,159 @@
+<html>
+<template>
+  <body>
+  <lightning-layout multiple-rows="true">
+      <lightning-layout-item padding="around-small" size="6" >
+        <div class="page-main">
+          <lightning-layout multiple-rows="true">
+            <lightning-layout-item size="12">
+              <div class="slds-p-top_large">
+                <label for="TipPromptNew" class="field-label">Sale amount</label>
+                <div class="input-container">
+                  <div class="dollar-box">
+                    <span class="dollar-symbol">$</span>
+                  </div>
+                  <input class="input-dollar" name="TipPromptNew" type="number" placeholder="0.00" step="0.1" onchange={saleAmountTipPrompt} oninput={validateSaleAmountPrompt} min="1" />
+                </div>
+                <div data-id="validationMessageTipPromptSaleAmount" class="validation-message"></div>
+              </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12">
+              <div class="slds-p-top_large">
+                <label for="TipPromptNew" class="field-label">ConsumerChoice discount</label>
+                <div class="input-container">
+                  <input class="input-dollar" name="TipPromptNew" type="number" step="0.1" onchange={surchargePercentageTipPrompt} oninput={validateSurchargePercentagePrompt} min="0" max="3" value={getSurchargePercentageTipPrompt} />
+                  <div class="dollar-box">
+                    <span class="dollar-symbol">%</span>
+                  </div>
+                </div>
+                <div data-id="validationMessageTipPromptSurcharge" class="validation-message"></div>
+              </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12">
+              <div class="slds-p-top_large">
+                <label for="TipPromptNew" class="field-label">Tax percentage</label>
+                <div class="input-container">
+                  <input class="input-dollar" name="TipPromptNew" type="number" step="0.1" onchange={taxPercentageTipPrompt} oninput={validateTaxPercentagePrompt} min="1" max="30" value={getTaxPercentageTipPrompt} />
+                  <div class="dollar-box">
+                    <span class="dollar-symbol">%</span>
+                  </div>
+                </div>
+                <div data-id="validationMessageTipPromptTax" class="validation-message"></div>
+              </div>
+              <br />
+            </lightning-layout-item>
+            <lightning-layout-item size="12">
+              <label for="radiogroupLabel" class="field-label">Do you want to add a tip?</label>
+              <lightning-radio-group class="radioClass" type="radio" label="" onchange={toggleTipQuestion} options={option1} id="radio1" name="demo" value={tipQuestionAnswer}></lightning-radio-group>
+              </lightning-layout-item>
+              <lightning-layout-item size="12">
+              <lightning-layout multiple-rows="true">
+
+              <template if:true={fieldVisible}>
+              <lightning-layout-item size="12">
+                  <label for="radiogroupLabel" class="field-label">Is the tip added during or after the transaction?</label>
+                  <lightning-radio-group class="radioClass" type="radio" label="" onchange={toggleTipQuestion2} options={option2} id="radio2" name="demo2" value={beforeOrAfterQuestionAnswer}></lightning-radio-group>
+              </lightning-layout-item>
+                <lightning-layout-item size="2">
+                  <div class="slds-p-top_large">
+                    <label for="TipPromptNew" class="field-label">Tip amount</label>
+                    <div class="input-container">
+                      <div class="dollar-box">
+                        <span class="dollar-symbol">$</span>
+                      </div>
+                      <input class="input-dollar" name="TipPromptNew" type="number" placeholder="0.00" step="0.1" onchange={handleTipAmountPrompt2} oninput={validateTipDollarPrompt} min="1" value={getTipAmountDollarTipPrompt} />
+                    </div>
+                    <div data-id="validationMessageTipPromptTipDollar" class="validation-message"></div>
+                  </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="1">
+                  <div class="slds-p-top_large">
+                    <div class="slds-form-element__control">
+                      <div class="slds-p-top_xx-large slds-p-left_none slds-p-right_none slds-text-align_center middleText"> or </div>
+                    </div>
+                  </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="2">
+                  <div class="slds-p-top_large">
+                    <label for="TipPromptNew" class="field-label">Percentage</label>
+                    <div class="input-container">
+                      <input class="input-dollar" name="TipPromptNew" type="number" step="0.1" onchange={handleTipAmountPrompt1} oninput={validateTipPercentagePrompt} min="1" max="100" value={getTipAmountTipPrompt} />
+                      <div class="dollar-box">
+                        <span class="dollar-symbol">%</span>
+                      </div>
+                    </div>
+                    <div data-id="validationMessageTipPromptNew" class="validation-message"></div>
+                  </div>
+                </lightning-layout-item>
+              </template>
+            </lightning-layout>
+            </lightning-layout-item>
+            <lightning-layout-item size="12">
+              <div class="slds-p-top_large">
+                <template if:false={disabled}>                
+                  <button title="Primary action" onclick={calculateTipPrompt} class="button"  type="submit"> Calculate </button>
+                </template>                  
+                <template if:true={disabled}>
+                  <button title="Disabled Action" class="disabledButton"  type="submit"> Calculate </button>
+                </template>       
+
+              </div>
+            </lightning-layout-item>
+          </lightning-layout>
+        </div>
+      </lightning-layout-item>
+      <lightning-layout-item padding="around-small" size="6">
+        <lightning-tabset class="tabStyling" if:true={showComponent} active-tab-value={activeTab}>
+          <lightning-layout multiple-rows="true">
+            <lightning-tab  label="Cash Transaction">
+              <lightning-layout-item padding="around-small" size="12" medium-device-size="8">
+                <div class="page-section">
+                  <label class="labelforresult">Sale amount</label>
+                  <br />
+                  <p class="result" >{getSaleAmountTipPromptOutput}</p>
+                  <br />
+                  <label class="labelforresult">Cash discount</label>
+                  <p class="result">{surTipPromptOutput}</p>
+                  <br />
+                  <label class="labelforresult">Tax percentage</label>
+                  <p class="result">{taxTipPromptOutput}</p>
+                  <br />
+                  <label class="labelforresult">Tip amount</label>
+                  <p class="result">{tipprmtOutput}</p>
+                  <hr class="hrLine">
+                  <label class="labelforfinalcharge">Final charge</label>
+                  <p class="finalresult">
+                    <FONT color="#F65F18" >{chargePromptPercentageOutput}</FONT>
+                  </p>
+                </div>
+              </lightning-layout-item>
+            </lightning-tab>
+            <lightning-tab  label="Card Transaction" onactive={handleChange}>
+              <lightning-layout-item padding="around-small" size="12" medium-device-size="8">
+                <div class="page-section">
+                  <label class="labelforresult">Sale amount</label>
+                  <p class="result">{getSaleAmountTipPromptOutput}</p>
+                  <br />
+                  <label class="labelforresult">Cash discount</label>
+                  <p class="result">$0.00</p>
+                  <br />
+                  <label class="labelforresult">Tax percentage</label>
+                  <p class="result">{taxTipAdjustOutput}</p>
+                  <br />
+                  <label class="labelforresult">Tip amount</label>
+                  <p class="result">{tipAmountAdjustOutput}</p>
+                  <hr class="hrLine">
+                  <label class="labelforfinalcharge">Final charge</label>
+                  <p class="finalresult">
+                    <FONT color="#F65F18">{chargeadjpercentageOutput}</FONT>
+                  </p>
+                </div>
+              </lightning-layout-item>
+            </lightning-tab>
+          </lightning-layout>
+        </lightning-tabset>
+      </lightning-layout-item>
+    </lightning-layout>
+    </body>
+</template>
+</html>
