@@ -12,15 +12,12 @@ The application consists of three main files:
 
 1. **HTML For Calculator.HTML** (`index.html`)
    - Provides the basic structure and layout of the form fields, allowing users to input values like sale amount, tax percentage, discount, and tip.
-   - [See the code here.](./HTML%20For%20Calculator.HTML)
 
 2. **CSS for Consumer Choice Calculator.CSS** (`style.css`)
    - Contains the styles used to format the input fields, labels, and buttons, making the application visually appealing.
-   - [See the code here.](./CSS%20for%20Consumer%20Choice%20Calculator.CSS)
 
 3. **JS For Calculator.JS** (`script.js`)
    - Implements the logic for calculating the final sale price based on the inputs, including sale amount, discount, tax, and tip.
-   - [See the code here.](./JS%20For%20Calculator.JS)
 
 ## Setup
 
